@@ -18,7 +18,7 @@ export class App {
   quoteForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+    phone: ['', [Validators.required, Validators.pattern('^[6-9][0-9]{9}$')]],
     projectType: ['residential', Validators.required],
     avgBill: ['', [Validators.required, Validators.min(0)]],
     message: ['']

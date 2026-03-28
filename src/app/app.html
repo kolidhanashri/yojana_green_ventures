@@ -1,24 +1,41 @@
 <div class="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-emerald-100 selection:text-emerald-900">
   <!-- Sticky Header -->
-  <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md transition-all">
-    <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 font-inter">
-      <div class="flex items-center gap-2">
-        <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-600 p-1 shadow-lg shadow-emerald-200">
-          <img src="assets/images/yojana_green_ventures.png" alt="Yojana Green Ventures Logo" class="h-full w-auto object-contain">
+  <header class="sticky top-0 z-[60] w-full bg-white/70 backdrop-blur-2xl border-b border-white/30 shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all duration-500">
+    <div class="absolute inset-x-0 bottom-[-1px] h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent"></div>
+    <div class="mx-auto flex h-24 max-w-[95%] items-center justify-between px-6 transition-all duration-500">
+      <div (click)="scrollToSection('hero')" class="relative flex cursor-pointer items-center transition-all duration-300 active:scale-95 group">
+        <!-- Logo Aura -->
+        <div class="absolute inset-0 bg-emerald-500/10 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+        
+        <div class="relative z-10 transition-transform duration-500 group-hover:scale-105">
+          <img src="assets/images/yojana_header_logo.png" alt="Logo" class="h-auto w-[25rem] max-w-full object-contain drop-shadow-2xl">
         </div>
-        <span class="text-xl font-bold tracking-tight text-slate-900 md:text-2xl font-heading">Yojana Green Ventures</span>
       </div>
       
-      <nav class="hidden md:flex md:items-center md:gap-8">
-        <a (click)="scrollToSection('about')" class="cursor-pointer text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">About</a>
-        <a (click)="scrollToSection('projects')" class="cursor-pointer text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">Projects</a>
-        <a (click)="scrollToSection('services')" class="cursor-pointer text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">Services</a>
-        <button (click)="scrollToSection('quote')" class="rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-emerald-700 hover:shadow-lg transition-all active:scale-95">Get Quote</button>
+      <nav class="hidden md:flex items-center gap-12">
+        <a (click)="scrollToSection('about')" class="group relative py-2 cursor-pointer text-sm font-black text-slate-800 hover:text-emerald-700 transition-all uppercase tracking-[0.2em] font-heading">
+          About
+          <span class="absolute bottom-0 left-0 h-[3px] w-0 bg-emerald-600 transition-all duration-500 group-hover:w-full rounded-full"></span>
+        </a>
+        <a (click)="scrollToSection('projects')" class="group relative py-2 cursor-pointer text-sm font-black text-slate-800 hover:text-emerald-700 transition-all uppercase tracking-[0.2em] font-heading">
+          Projects
+          <span class="absolute bottom-0 left-0 h-[3px] w-0 bg-emerald-600 transition-all duration-500 group-hover:w-full rounded-full"></span>
+        </a>
+        <a (click)="scrollToSection('services')" class="group relative py-2 cursor-pointer text-sm font-black text-slate-800 hover:text-emerald-700 transition-all uppercase tracking-[0.2em] font-heading">
+          Services
+          <span class="absolute bottom-0 left-0 h-[3px] w-0 bg-emerald-600 transition-all duration-500 group-hover:w-full rounded-full"></span>
+        </a>
+        
+        <button (click)="scrollToSection('quote')" class="group relative px-9 py-4 bg-[#0a1120] rounded-[1.25rem] text-sm font-bold text-white shadow-2xl shadow-slate-900/10 hover:shadow-emerald-500/40 hover:bg-emerald-600 transition-all duration-500 active:scale-95 overflow-hidden">
+          <span class="relative z-20 uppercase tracking-widest">Request Quote</span>
+          <!-- Dynamic fill effect -->
+          <div class="absolute inset-0 bg-gradient-to-r from-emerald-500 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </button>
       </nav>
 
-      <!-- Mobile Menu Button (simplistic) -->
-      <button class="md:hidden rounded-lg p-2 text-slate-600 hover:bg-slate-100">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden flex h-14 w-14 items-center justify-center rounded-2xl bg-white border border-slate-100 shadow-sm text-slate-600 hover:bg-slate-50 transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
@@ -27,24 +44,22 @@
 
   <main>
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-slate-900 py-24 sm:py-32 lg:pb-40">
-      <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.emerald.900/0.1),theme(colors.slate.900))]"></div>
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-          <div class="lg:col-span-12 text-center">
-            <h1 class="font-heading text-4xl font-extrabold tracking-tight text-white sm:text-6x md:text-7xl">
-              <span class="block text-emerald-500 mb-2">Save Energy, Save Money</span>
-              Expert Solar Subsidy Consultancy
-            </h1>
-            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Unlock maximum government benefits for your solar transition. We handle PM-KUSUM, Rooftop Phase II, and all net-metering complexities so you focus on the savings.
-            </p>
-            <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
-              <button (click)="scrollToSection('quote')" class="rounded-full bg-emerald-600 px-8 py-4 text-base font-semibold text-white shadow-xl hover:bg-emerald-500 hover:scale-105 transition-all">Check Subsidy Eligibility</button>
-              <button (click)="scrollToSection('services')" class="text-base font-semibold text-white hover:text-emerald-400 group transition-all">
-                Learn how it works <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">→</span>
-              </button>
-            </div>
+    <section id="hero" class="relative overflow-hidden bg-[#061022] py-28 sm:py-36 lg:pb-48">
+      <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,theme(colors.emerald.900/0.15),transparent),radial-gradient(ellipse_at_bottom_left,theme(colors.emerald.800/0.05),transparent)]"></div>
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="font-heading text-5xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl">
+            <span class="block text-emerald-500 mb-4 opacity-100">Clean Energy.</span>
+            Smart Savings.
+          </h1>
+          <p class="mx-auto mt-8 max-w-2xl text-lg sm:text-xl leading-8 text-slate-300 font-inter">
+            Navigate the complexity of <span class="text-emerald-400 font-semibold">Solar Subsidies</span> with absolute ease. We handle the bureaucracy, you focus on the future.
+          </p>
+          <div class="mt-12 flex flex-wrap items-center justify-center gap-6">
+            <button (click)="scrollToSection('quote')" class="rounded-full bg-emerald-600 px-10 py-5 text-lg font-bold text-white shadow-2xl shadow-emerald-500/20 hover:bg-emerald-500 hover:scale-105 active:scale-95 transition-all">Start Your Journey</button>
+            <button (click)="scrollToSection('services')" class="text-lg font-semibold text-white/80 hover:text-white group transition-all">
+              Explore Services <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </button>
           </div>
         </div>
       </div>
@@ -67,7 +82,7 @@
           <div class="relative overflow-hidden rounded-2xl bg-slate-100 shadow-2xl">
             <!-- Placeholder for professional photo -->
             <div class="aspect-[4/3] w-full bg-slate-200 flex items-center justify-center">
-              <img src="assets/images/yojana_green_ventures.png" alt="About Yojana Green Ventures" class="h-full w-full object-cover">
+              <img src="assets/images/yojana_green.jpg" alt="About Yojana Green Ventures" class="h-full w-full object-cover">
             </div>
           </div>
         </div>
@@ -83,54 +98,66 @@
         </div>
         <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <!-- Card 1 -->
-          <article class="flex flex-col items-start justify-between rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-2 hover:shadow-xl">
-            <div class="w-full bg-slate-100 rounded-lg aspect-video mb-6 flex items-center justify-center">
-              <span class="text-slate-400 uppercase tracking-widest text-xs font-bold">Residential Rooftop</span>
+          <article class="group flex flex-col items-start justify-between rounded-3xl bg-white p-10 shadow-sm ring-1 ring-slate-200 transition-all hover:shadow-2xl hover:shadow-emerald-900/5 hover:-translate-y-2">
+            <div class="w-full bg-slate-50 rounded-2xl aspect-[16/10] mb-8 overflow-hidden relative">
+              <div class="absolute inset-0 bg-emerald-600 opacity-0 group-hover:opacity-5 transition-opacity"></div>
+              <div class="h-full w-full flex items-center justify-center text-slate-300 italic text-sm">Case Image</div>
             </div>
-            <div class="flex items-center gap-x-4 text-xs">
-              <span class="relative z-10 rounded-full bg-emerald-100 px-3 py-1.5 font-medium text-emerald-700">3kW Installation</span>
+            <div class="flex items-center gap-x-4 text-xs font-bold uppercase tracking-widest text-emerald-600">
+              Residential Rooftop
             </div>
             <div class="group relative">
-              <h3 class="mt-3 text-xl font-semibold leading-6 text-slate-900 group-hover:text-emerald-600">
+              <h3 class="mt-4 text-2xl font-bold leading-8 text-slate-900 group-hover:text-emerald-600 transition-colors font-heading">
                 Residential Solar Expansion
               </h3>
-              <p class="mt-5 line-clamp-3 text-sm leading-6 text-slate-600">Saved ₹52,000 in upfront costs through Rooftop Phase II. 100% subsidy disbursement achieved in record time.</p>
+              <p class="mt-4 text-base leading-7 text-slate-600">Saved ₹52,000 in upfront costs through Rooftop Phase II. 100% subsidy disbursement achieved in record time.</p>
             </div>
-            <a href="#" class="mt-6 text-sm font-semibold leading-6 text-emerald-600 hover:text-emerald-500 transition-colors">View Case Study <span aria-hidden="true">&rarr;</span></a>
+            <a href="#" class="mt-8 text-sm font-bold uppercase tracking-widest text-emerald-600 hover:text-emerald-500 flex items-center gap-2 group/link">
+              View Case Study 
+              <span class="transition-transform group-hover/link:translate-x-1">→</span>
+            </a>
           </article>
 
           <!-- Card 2 -->
-          <article class="flex flex-col items-start justify-between rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-2 hover:shadow-xl">
-            <div class="w-full bg-slate-100 rounded-lg aspect-video mb-6 flex items-center justify-center">
-              <span class="text-slate-400 uppercase tracking-widest text-xs font-bold">PM-KUSUM Agri</span>
+          <article class="group flex flex-col items-start justify-between rounded-3xl bg-white p-10 shadow-sm ring-1 ring-slate-200 transition-all hover:shadow-2xl hover:shadow-emerald-900/5 hover:-translate-y-2">
+            <div class="w-full bg-slate-50 rounded-2xl aspect-[16/10] mb-8 overflow-hidden relative">
+              <div class="absolute inset-0 bg-emerald-600 opacity-0 group-hover:opacity-5 transition-opacity"></div>
+              <div class="h-full w-full flex items-center justify-center text-slate-300 italic text-sm">Case Image</div>
             </div>
-            <div class="flex items-center gap-x-4 text-xs">
-              <span class="relative z-10 rounded-full bg-emerald-100 px-3 py-1.5 font-medium text-emerald-700">10HP Smart Pump</span>
+            <div class="flex items-center gap-x-4 text-xs font-bold uppercase tracking-widest text-emerald-600">
+              PM-KUSUM Agri
             </div>
             <div class="group relative">
-              <h3 class="mt-3 text-xl font-semibold leading-6 text-slate-900 group-hover:text-emerald-600">
+              <h3 class="mt-4 text-2xl font-bold leading-8 text-slate-900 group-hover:text-emerald-600 transition-colors font-heading">
                 Agricultural Empowerment
               </h3>
-              <p class="mt-5 line-clamp-3 text-sm leading-6 text-slate-600">Implemented PM-KUSUM for a rural farming cluster, reducing energy bills to near-zero with 90% government funding.</p>
+              <p class="mt-4 text-base leading-7 text-slate-600">Implemented PM-KUSUM for a rural farming cluster, reducing energy bills to near-zero with 90% government funding.</p>
             </div>
-            <a href="#" class="mt-6 text-sm font-semibold leading-6 text-emerald-600 hover:text-emerald-500 transition-colors">View Case Study <span aria-hidden="true">&rarr;</span></a>
+            <a href="#" class="mt-8 text-sm font-bold uppercase tracking-widest text-emerald-600 hover:text-emerald-500 flex items-center gap-2 group/link">
+              View Case Study 
+              <span class="transition-transform group-hover/link:translate-x-1">→</span>
+            </a>
           </article>
 
           <!-- Card 3 -->
-          <article class="flex flex-col items-start justify-between rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-2 hover:shadow-xl">
-            <div class="w-full bg-slate-100 rounded-lg aspect-video mb-6 flex items-center justify-center">
-              <span class="text-slate-400 uppercase tracking-widest text-xs font-bold">Commercial Net-Metering</span>
+          <article class="group flex flex-col items-start justify-between rounded-3xl bg-white p-10 shadow-sm ring-1 ring-slate-200 transition-all hover:shadow-2xl hover:shadow-emerald-900/5 hover:-translate-y-2">
+            <div class="w-full bg-slate-50 rounded-2xl aspect-[16/10] mb-8 overflow-hidden relative">
+              <div class="absolute inset-0 bg-emerald-600 opacity-0 group-hover:opacity-5 transition-opacity"></div>
+              <div class="h-full w-full flex items-center justify-center text-slate-300 italic text-sm">Case Image</div>
             </div>
-            <div class="flex items-center gap-x-4 text-xs">
-              <span class="relative z-10 rounded-full bg-emerald-100 px-3 py-1.5 font-medium text-emerald-700">50kW System</span>
+            <div class="flex items-center gap-x-4 text-xs font-bold uppercase tracking-widest text-emerald-600">
+              Commercial Net-Metering
             </div>
             <div class="group relative">
-              <h3 class="mt-3 text-xl font-semibold leading-6 text-slate-900 group-hover:text-emerald-600">
+              <h3 class="mt-4 text-2xl font-bold leading-8 text-slate-900 group-hover:text-emerald-600 transition-colors font-heading">
                 Corporate Energy Audit
               </h3>
-              <p class="mt-5 line-clamp-3 text-sm leading-6 text-slate-600">Full net-metering setup for an SME, ensuring billing credits and ROI within 3.5 years through state-specific incentives.</p>
+              <p class="mt-4 text-base leading-7 text-slate-600">Full net-metering setup for an SME, ensuring billing credits and ROI within 3.5 years through state-specific incentives.</p>
             </div>
-            <a href="#" class="mt-6 text-sm font-semibold leading-6 text-emerald-600 hover:text-emerald-500 transition-colors">View Case Study <span aria-hidden="true">&rarr;</span></a>
+            <a href="#" class="mt-8 text-sm font-bold uppercase tracking-widest text-emerald-600 hover:text-emerald-500 flex items-center gap-2 group/link">
+              View Case Study 
+              <span class="transition-transform group-hover/link:translate-x-1">→</span>
+            </a>
           </article>
         </div>
       </div>
@@ -144,37 +171,37 @@
           <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl font-heading">Everything You Need for Solar Success</p>
         </div>
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            <div class="flex flex-col items-start p-6 rounded-2xl hover:bg-slate-50 transition-colors">
-              <div class="h-12 w-12 rounded-lg bg-emerald-600 text-white flex items-center justify-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <dl class="grid max-w-xl grid-cols-1 gap-x-12 gap-y-16 lg:max-w-none lg:grid-cols-3">
+            <div class="relative flex flex-col items-start p-10 rounded-3xl bg-slate-50/50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-emerald-900/5 transition-all group">
+              <div class="h-14 w-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-emerald-200/50 group-hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <dt class="text-xl font-semibold leading-7 text-slate-900">Subsidy Consultancy</dt>
-              <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600">
+              <dt class="text-2xl font-bold leading-7 text-slate-900 font-heading">Subsidy Consultancy</dt>
+              <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600 font-inter">
                 End-to-end management of PM-KUSUM and Rooftop Phase II applications. We handle the paperwork, you handle the savings.
               </dd>
             </div>
-            <div class="flex flex-col items-start p-6 rounded-2xl hover:bg-slate-50 transition-colors">
-              <div class="h-12 w-12 rounded-lg bg-emerald-600 text-white flex items-center justify-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="relative flex flex-col items-start p-10 rounded-3xl bg-slate-50/50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-emerald-900/5 transition-all group">
+              <div class="h-14 w-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-emerald-200/50 group-hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <dt class="text-xl font-semibold leading-7 text-slate-900">Net-Metering Setup</dt>
-              <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600">
+              <dt class="text-2xl font-bold leading-7 text-slate-900 font-heading">Net-Metering Setup</dt>
+              <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600 font-inter">
                 Technical liaison with DISCOMs for seamless net-metering integration, ensuring every unit produced counts towards your bill.
               </dd>
             </div>
-            <div class="flex flex-col items-start p-6 rounded-2xl hover:bg-slate-50 transition-colors">
-              <div class="h-12 w-12 rounded-lg bg-emerald-600 text-white flex items-center justify-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="relative flex flex-col items-start p-10 rounded-3xl bg-slate-50/50 border border-slate-100 hover:bg-white hover:shadow-xl hover:shadow-emerald-900/5 transition-all group">
+              <div class="h-14 w-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-emerald-200/50 group-hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <dt class="text-xl font-semibold leading-7 text-slate-900">Solar Energy Auditing</dt>
-              <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600">
+              <dt class="text-2xl font-bold leading-7 text-slate-900 font-heading">Solar Energy Auditing</dt>
+              <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600 font-inter">
                 Data-driven analysis of your energy consumption to recommend the optimal solar capacity and system configuration.
               </dd>
             </div>
@@ -184,92 +211,86 @@
     </section>
 
     <!-- Lead Gen Form -->
-    <section id="quote" class="bg-slate-900 py-24 sm:py-32">
+    <section id="quote" class="bg-[#061022] py-28 sm:py-36">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl space-y-16 lg:mx-0 lg:max-w-none lg:grid lg:grid-cols-2 lg:gap-x-12">
+        <div class="mx-auto max-w-2xl space-y-16 lg:mx-0 lg:max-w-none lg:grid lg:grid-cols-2 lg:gap-x-20 lg:items-center lg:space-y-0">
           <div>
-            <h2 class="font-heading text-4xl font-bold tracking-tight text-white">Get Your Free Subsidy Quote</h2>
-            <p class="mt-6 text-lg leading-8 text-slate-300">
+            <h2 class="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl leading-tight">Ready to Switch? <br><span class="text-emerald-500">Get Your Free Quote.</span></h2>
+            <p class="mt-8 text-lg leading-8 text-slate-300 font-inter">
               Fill out the form and our experts will analyze your eligibility and provide a detailed breakdown of potential savings.
             </p>
-            <div class="mt-10 space-y-4">
-              <div class="flex gap-x-4 items-center">
-                <div class="h-10 w-10 rounded-full bg-emerald-600/20 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="mt-12 space-y-6">
+              <div class="flex gap-x-5 items-center group">
+                <div class="h-12 w-12 rounded-2xl bg-emerald-600/10 border border-emerald-600/20 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all text-emerald-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
-                <span class="text-slate-300 font-medium">+91 7276056272</span>
+                <div>
+                  <div class="text-xs font-bold text-emerald-500 uppercase tracking-widest">Call Us</div>
+                  <span class="text-slate-200 font-semibold text-lg hover:text-white transition-colors cursor-pointer">+91 7276056272</span>
+                </div>
               </div>
-              <div class="flex gap-x-4 items-center">
-                <div class="h-10 w-10 rounded-full bg-emerald-600/20 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div class="flex gap-x-5 items-center group">
+                <div class="h-12 w-12 rounded-2xl bg-emerald-600/10 border border-emerald-600/20 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all text-emerald-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <span class="text-slate-300 font-medium">info@yojanagreen.com</span>
+                <div>
+                  <div class="text-xs font-bold text-emerald-500 uppercase tracking-widest">Email Us</div>
+                  <span class="text-slate-200 font-semibold text-lg hover:text-white transition-colors cursor-pointer">info@yojanagreen.com</span>
+                </div>
               </div>
             </div>
           </div>
           
-          <div class="bg-white p-8 rounded-3xl shadow-2xl relative overflow-hidden">
+          <div class="bg-white p-10 sm:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-slate-100">
             @if (isSubmitted()) {
-              <div class="flex flex-col items-center justify-center h-full py-12 text-center">
-                <div class="h-16 w-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-emerald-600 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div class="flex flex-col items-center justify-center py-16 text-center">
+                <div class="h-20 w-20 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-emerald-600 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-slate-900">Quote Requested!</h3>
-                <p class="text-slate-600 mt-2">Our experts will contact you within 24 hours.</p>
+                <h3 class="text-3xl font-bold text-slate-900 font-heading">Quote Requested!</h3>
+                <p class="text-slate-600 mt-4 text-lg">Our experts will contact you within 24 hours.</p>
+                <button (click)="isSubmitted.set(false)" class="mt-8 text-emerald-600 font-bold hover:underline">Get Another Quote</button>
               </div>
             } @else {
               <form [formGroup]="quoteForm" (ngSubmit)="onSubmit()" class="space-y-6">
                 <div>
-                  <label for="name" class="block text-sm font-semibold leading-6 text-slate-900">Your Name</label>
-                  <div class="mt-2.5">
-                    <input type="text" formControlName="name" id="name" class="block w-full rounded-xl border-0 px-3.5 py-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6 transition-all" placeholder="John Doe">
-                    <p *ngIf="quoteForm.get('name')?.touched && quoteForm.get('name')?.invalid" class="mt-1 text-xs text-red-500">Please enter a valid name (min 3 chars).</p>
-                  </div>
+                  <label for="name" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Your Name</label>
+                  <input type="text" formControlName="name" id="name" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 transition-all font-inter" placeholder="John Doe">
                 </div>
-                <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div>
-                    <label for="email" class="block text-sm font-semibold leading-6 text-slate-900">Email Address</label>
-                    <div class="mt-2.5">
-                      <input type="email" formControlName="email" id="email" class="block w-full rounded-xl border-0 px-3.5 py-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6 transition-all" placeholder="john@example.com">
-                      <p *ngIf="quoteForm.get('email')?.touched && quoteForm.get('email')?.invalid" class="mt-1 text-xs text-red-500">Please enter a valid email.</p>
-                    </div>
+                    <label for="email" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Email</label>
+                    <input type="email" formControlName="email" id="email" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 transition-all font-inter" placeholder="john@example.com">
                   </div>
                   <div>
-                    <label for="phone" class="block text-sm font-semibold leading-6 text-slate-900">Contact Number</label>
-                    <div class="mt-2.5">
-                      <input type="text" formControlName="phone" id="phone" class="block w-full rounded-xl border-0 px-3.5 py-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6 transition-all" placeholder="9876543210">
-                      <p *ngIf="quoteForm.get('phone')?.touched && quoteForm.get('phone')?.invalid" class="mt-1 text-xs text-red-500">Required (10-digit number).</p>
-                    </div>
+                    <label for="phone" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Mobile</label>
+                    <input type="text" formControlName="phone" id="phone" maxlength="10" minlength="10" inputmode="numeric" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 transition-all font-inter" placeholder="9876543210">
                   </div>
                 </div>
-                <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div>
-                    <label for="projectType" class="block text-sm font-semibold leading-6 text-slate-900">Project Type</label>
-                    <div class="mt-2.5">
-                      <select id="projectType" formControlName="projectType" class="block w-full rounded-xl border-0 px-3.5 py-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6">
-                        <option value="residential">Residential Rooftop</option>
-                        <option value="commercial">Commercial/Industrial</option>
-                        <option value="agricultural">Agricultural (PM-KUSUM)</option>
-                      </select>
-                    </div>
+                    <label for="projectType" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Project</label>
+                    <select id="projectType" formControlName="projectType" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 focus:ring-2 focus:ring-inset focus:ring-emerald-600 font-inter">
+                      <option value="residential">Residential</option>
+                      <option value="commercial">Commercial</option>
+                      <option value="agricultural">Agricultural</option>
+                    </select>
                   </div>
                   <div>
-                    <label for="avgBill" class="block text-sm font-semibold leading-6 text-slate-900">Avg. Monthly Bill (₹)</label>
-                    <div class="mt-2.5">
-                      <input type="number" formControlName="avgBill" id="avgBill" class="block w-full rounded-xl border-0 px-3.5 py-4 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6 transition-all" placeholder="2500">
-                      <p *ngIf="quoteForm.get('avgBill')?.touched && quoteForm.get('avgBill')?.invalid" class="mt-1 text-xs text-red-500">Required.</p>
-                    </div>
+                    <label for="avgBill" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Avg. Bill (₹)</label>
+                    <input type="number" formControlName="avgBill" id="avgBill" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 transition-all font-inter" placeholder="2500">
                   </div>
                 </div>
-                <div>
-                  <button type="submit" [disabled]="quoteForm.invalid" class="block w-full rounded-xl bg-emerald-600 px-3.5 py-4 text-center text-sm font-semibold text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed active:scale-95">Send Request</button>
-                </div>
+                <button type="submit" [disabled]="quoteForm.invalid" class="group relative flex w-full items-center justify-center overflow-hidden rounded-2xl bg-emerald-600 px-8 py-5 text-lg font-bold text-white shadow-xl shadow-emerald-500/20 transition-all hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed">
+                  <span class="relative z-10 uppercase tracking-widest">Submit Request</span>
+                  <div class="absolute inset-x-0 bottom-0 h-0 w-full bg-white/10 transition-all group-hover:h-full"></div>
+                </button>
               </form>
             }
           </div>
@@ -282,11 +303,9 @@
   <footer class="bg-white border-t border-slate-200 py-12">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="flex flex-col items-center justify-between md:flex-row gap-8">
-        <div class="flex items-center gap-2">
-          <div class="h-8 w-8 rounded bg-emerald-600 p-0.5 text-white flex items-center justify-center">
-            <img src="assets/images/yojana_green_ventures.png" alt="Logo" class="h-full w-auto object-contain">
-          </div>
-          <span class="text-lg font-bold text-slate-900">Yojana Green Ventures</span>
+        <div (click)="scrollToSection('hero')" class="relative flex cursor-pointer items-center justify-center transition-all hover:scale-105 active:scale-95 group">
+          <img src="assets/images/yojana_header_logo.png" alt="Logo" class="h-auto w-72 object-contain">
+          <div class="absolute inset-0 bg-emerald-400/5 blur-xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </div>
         <p class="text-sm text-slate-500">© 2026 Yojana Green Ventures. All rights reserved.</p>
         <div class="flex gap-6">
