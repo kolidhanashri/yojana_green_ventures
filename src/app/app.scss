@@ -1,0 +1,37 @@
+:host {
+  display: block;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom transitions for glassmorphism and cards */
+.glass-panel {
+  @apply bg-white/10 backdrop-blur-lg border border-white/20;
+}
+
+/* Section transitions */
+section {
+  @apply transition-all duration-700 ease-out;
+}
+
+/* Button micro-interactions */
+button {
+  @apply active:scale-95 transition-transform;
+}
+
+/* Ensure font overrides work for CDN-based tailwind */
+.font-heading {
+  font-family: 'Lexend', sans-serif !important;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif !important;
+}
