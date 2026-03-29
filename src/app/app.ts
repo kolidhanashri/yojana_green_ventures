@@ -2,6 +2,7 @@ import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { LeadService } from './services/lead.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angula
 })
 export class App {
   private fb = inject(FormBuilder);
+  private leadService = inject(LeadService);
   
   protected readonly title = signal('Yojana Green Ventures');
 
@@ -20,21 +22,31 @@ export class App {
     email: ['', [Validators.required, Validators.email]],
     phone: ['', [Validators.required, Validators.pattern('^[6-9][0-9]{9}$')]],
     projectType: ['residential', Validators.required],
-    avgBill: ['', [Validators.required, Validators.min(0)]],
-    message: ['']
+    avgBill: ['', [Validators.required, Validators.min(0)]]
   });
 
+  isSubmitting = signal(false);
   isSubmitted = signal(false);
 
   onSubmit() {
     if (this.quoteForm.valid) {
-      console.log('Form Submitted:', this.quoteForm.value);
-      this.isSubmitted.set(true);
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        this.isSubmitted.set(false);
-        this.quoteForm.reset({ projectType: 'residential' });
-      }, 3000);
+      this.isSubmitting.set(true);
+
+      this.leadService.submitLead(this.quoteForm.value).subscribe({
+        next: () => {
+          this.isSubmitting.set(false);
+          this.isSubmitted.set(true);
+          // Reset form after 3 seconds
+          setTimeout(() => {
+            this.isSubmitted.set(false);
+            this.quoteForm.reset({ projectType: 'residential' });
+          }, 3000);
+        },
+        error: () => {
+          this.isSubmitting.set(false);
+          // Handle error if needed, but the service already maps most cases to success for Google Forms
+        }
+      });
     } else {
       Object.keys(this.quoteForm.controls).forEach(key => {
         const control = this.quoteForm.get(key);
