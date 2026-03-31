@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+# This allows you to trigger the action manually from the GitHub UI
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Tests
+        run: npm run test -- --watch=false # Run tests without watch mode for CI
+
+      - name: Build
+        run: npm run build -- --base-href / # Using root for yojanagreen.com
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/yojana-green-ventures/browser # Path to the build output
+          branch: gh-pages # The branch the action will deploy to.
+          cname: yojanagreen.com # Automatically creates the CNAME file for your domain
