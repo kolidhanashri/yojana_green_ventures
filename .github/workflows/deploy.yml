@@ -1,6 +1,5 @@
 name: Deploy to GitHub Pages
 
-# This allows you to trigger the action manually from the GitHub UI
 on:
   workflow_dispatch:
 
@@ -25,14 +24,16 @@ jobs:
         run: npm ci
 
       - name: Run Tests
-        run: npm run test -- --watch=false # Run tests without watch mode for CI
+        run: |
+          npx playwright install chromium
+          npm run test -- --watch=false --headless
 
       - name: Build
-        run: npm run build -- --base-href / # Using root for yojanagreen.com
+        run: npm run build -- --base-href / --configuration production
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/yojana-green-ventures/browser # Path to the build output
-          branch: gh-pages # The branch the action will deploy to.
-          cname: yojanagreen.com # Automatically creates the CNAME file for your domain
+          folder: dist/yojana-green-ventures/browser
+          branch: gh-pages
+          cname: yojanagreen.com
