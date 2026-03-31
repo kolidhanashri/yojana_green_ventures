@@ -25,7 +25,7 @@ jobs:
         run: npm ci
 
       - name: Run Tests
-        run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadless
+        run: npm run test -- --watch=false # Run tests without watch mode for CI
 
       - name: Build
         run: npm run build -- --base-href / # Using root for yojanagreen.com
