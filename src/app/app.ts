@@ -18,9 +18,10 @@ export class App {
 
   quoteForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
-    email: ['', [Validators.required, Validators.email]],
+    city: ['', [Validators.required]],
+    email: ['', [Validators.email]],
     phone: ['', [Validators.required, Validators.pattern('^[6-9][0-9]{9}$')]],
-    projectType: ['residential', Validators.required],
+    projectType: ['Residential', Validators.required],
     avgBill: ['', [Validators.required, Validators.min(0)]]
   });
 
@@ -38,7 +39,7 @@ export class App {
           // Reset form after 3 seconds
           setTimeout(() => {
             this.isSubmitted.set(false);
-            this.quoteForm.reset({ projectType: 'residential' });
+            this.quoteForm.reset({ projectType: 'Residential' });
           }, 3000);
         },
         error: () => {

@@ -61,7 +61,7 @@
                 <span class="h-2 w-2 rounded-full bg-[#2D5A27] animate-pulse"></span>
                 Official Subsidy Guide
               </div>
-              <h1 class="mt-4 font-heading text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-[7rem] leading-[1.05]">
+              <h1 class="mt-4 font-heading text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]">
                 Use Solar Power. <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#2D5A27] via-[#2D5A27] to-[#FDB813]">Get Your Subsidy Easily.</span>
               </h1>
             </div>
@@ -383,30 +383,34 @@
             } @else {
               <form [formGroup]="quoteForm" (ngSubmit)="onSubmit()" class="space-y-6">
                 <div>
-                  <label for="name" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Your Name</label>
+                  <label for="name" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Your Name <span class="text-red-500">*</span></label>
                   <input type="text" formControlName="name" id="name" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 transition-all font-inter" placeholder="John Doe">
                 </div>
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div>
-                    <label for="email" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Email</label>
-                    <input type="email" formControlName="email" id="email" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 transition-all font-inter" placeholder="john@example.com">
+                    <label for="city" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">City <span class="text-red-500">*</span></label>
+                    <input type="text" formControlName="city" id="city" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 transition-all font-inter" placeholder="Your City">
                   </div>
                   <div>
-                    <label for="phone" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Mobile</label>
+                    <label for="phone" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Mobile <span class="text-red-500">*</span></label>
                     <input type="text" formControlName="phone" id="phone" maxlength="10" minlength="10" inputmode="numeric" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 transition-all font-inter" placeholder="9876543210">
                   </div>
                 </div>
+                <div>
+                  <label for="email" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Email <span class="normal-case tracking-normal opacity-75">(Optional)</span></label>
+                  <input type="email" formControlName="email" id="email" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 transition-all font-inter" placeholder="john@example.com">
+                </div>
                 <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div>
-                    <label for="projectType" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Project</label>
+                    <label for="projectType" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Project <span class="text-red-500">*</span></label>
                     <select id="projectType" formControlName="projectType" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 focus:ring-2 focus:ring-inset focus:ring-emerald-600 font-inter">
-                      <option value="residential">Residential</option>
-                      <option value="commercial">Commercial</option>
-                      <option value="agricultural">Agricultural</option>
+                      <option value="Residential">Residential</option>
+                      <option value="Commercial">Commercial</option>
+                      <option value="Agricultural">Agricultural</option>
                     </select>
                   </div>
                   <div>
-                    <label for="avgBill" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Avg. Bill (₹)</label>
+                    <label for="avgBill" class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Avg. Bill (₹) <span class="text-red-500">*</span></label>
                     <input type="number" formControlName="avgBill" id="avgBill" class="block w-full rounded-2xl border-0 bg-slate-50 px-5 py-4 text-slate-900 ring-1 ring-inset ring-slate-100 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 transition-all font-inter" placeholder="2500">
                   </div>
                 </div>

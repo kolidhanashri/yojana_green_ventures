@@ -16,11 +16,12 @@ export class LeadService {
 
   submitLead(formData: any): Observable<boolean> {
     const params = new HttpParams()
-      .set(this.ENTRY_IDS.name, formData.name)
-      .set(this.ENTRY_IDS.email, formData.email)
-      .set(this.ENTRY_IDS.mobile, formData.phone)
-      .set(this.ENTRY_IDS.project, formData.projectType)
-      .set(this.ENTRY_IDS.billAmount, formData.avgBill);
+      .set(this.ENTRY_IDS.name, formData.name || '')
+      .set(this.ENTRY_IDS.city, formData.city || '')
+      .set(this.ENTRY_IDS.email, formData.email || '')
+      .set(this.ENTRY_IDS.mobile, formData.phone || '')
+      .set(this.ENTRY_IDS.project, formData.projectType || '')
+      .set(this.ENTRY_IDS.billAmount, formData.avgBill?.toString() || '');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
